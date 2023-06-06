@@ -14,10 +14,10 @@ cd ~/Library/Rime
 wget https://git.io/rime-install
 ```
 
-Then install `gkovacs/rime-japanese` using plum:
+Then install `bennyyip/rime-japanese` using plum:
 
 ```bash
-bash rime-install gkovacs/rime-japanese
+bash rime-install bennyyip/rime-japanese
 ```
 
 Finally edit `default.custom.yaml` and add `japanese` to the schema list:
@@ -29,3 +29,7 @@ patch:
 ```
 
 Now reload RIME and it should appear under your layouts.
+
+## History
+- 0.3 (2023-06-06): Remove old reverse lookups and use `luna_pinyin` instead; Remove old key bindings.
+

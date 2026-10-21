@@ -11,6 +11,8 @@ schema:
     - bennyyip <yebenmy@gmail.com>
   dependencies:
     - luna_pinyin
+    - japanese_hira
+    - japanese_kata
 
 switches:
   - name: ascii_mode
@@ -36,12 +38,16 @@ engine:
     - matcher
     - abc_segmentor
     - affix_segmentor@luna_pinyin
+    - affix_segmentor@japanese_hira
+    - affix_segmentor@japanese_kata
     - punct_segmentor
     - fallback_segmentor
   translators:
     - punct_translator
     - script_translator
     - script_translator@luna_pinyin
+    - script_translator@japanese_hira
+    - script_translator@japanese_kata
     # - reverse_lookup_translator
   filters:
     - uniquifier
@@ -80,6 +86,25 @@ luna_pinyin_reverse_lookup:
   overwrite_comment: false
   dictionary: japanese
 
+japanese_hira:
+  tag: japanese_hira
+  # prism: japanese_hira
+  dictionary: japanese_hira
+  prefix: "/h"
+  # suffix: ";"
+  enable_sentence: false # 禁止造句
+  enable_user_dict: false # 禁用用户词典
+  tips: 〔平假名〕
+
+japanese_kata:
+  tag: japanese_kata
+  # prism: japanese_kata
+  dictionary: japanese_kata
+  prefix: "/k"
+  # suffix: ";"
+  enable_sentence: false # 禁止造句
+  enable_user_dict: false # 禁用用户词典
+  tips: 〔片假名〕
 
 punctuator:
   import_preset: default
@@ -91,3 +116,5 @@ recognizer:
   import_preset: default
   patterns:
     luna_pinyin: "^`[a-z']*;?$"
+    japanese_hira: "^/h[a-z]+$"
+    japanese_kata: "^/k[a-z]+$"
